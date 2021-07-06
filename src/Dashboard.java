@@ -31,7 +31,6 @@ public class Dashboard extends javax.swing.JFrame {
         Riwayat = new javax.swing.JButton();
         Keluar = new javax.swing.JButton();
         Edit = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("DASHBOARD SCOSA");
@@ -57,12 +56,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+
         Edit.setText("Edit Absensi");
         Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditActionPerformed(evt);
             }
         });
+
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,6 +83,20 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(Riwayat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Keluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(60, 60, 60))
+
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(Input, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(Riwayat))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(Keluar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel1)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,6 +112,9 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(Edit)
                     .addComponent(Keluar))
                 .addGap(51, 51, 51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(Keluar)
+                .addContainerGap())
         );
 
         pack();
@@ -123,6 +141,18 @@ public class Dashboard extends javax.swing.JFrame {
         EA.setVisible(true);
         dispose();
     }//GEN-LAST:event_EditActionPerformed
+
+    private void InputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputActionPerformed
+        
+    }//GEN-LAST:event_InputActionPerformed
+
+    private void RiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatActionPerformed
+        
+    }//GEN-LAST:event_RiwayatActionPerformed
+
+    private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
+        
+    }//GEN-LAST:event_KeluarActionPerformed
 
     /**
      * @param args the command line arguments
