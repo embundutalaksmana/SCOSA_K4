@@ -1,6 +1,63 @@
+//<<<<<<< script_fungsi
+
+import konfigurasi.CONFIG;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Embun Duta Laksmana
+ */
 public class Riwayat_Absen extends javax.swing.JFrame {
+
+    public void bersih(){
+        NIS_f.setEditable(true);
+        NIS_f.setText(null);
+        Nama_f.setText(null);
+        Kelas_f.setText(null);
+    }
+    private void print_data(){
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("No.");
+        model.addColumn("Tanggal");
+        model.addColumn("NIS");
+        model.addColumn("Nama");
+        model.addColumn("Kelas");
+        model.addColumn("Keterangan");
+         try{
+            int no = 1;
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            while(res.next()) {
+               model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
+               res.getString(3), res.getString(4), res.getString(5)});
+            } 
+              
+            Table_siswa.setModel(model);
+            
+        } catch(SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }
+//=======
+public class Riwayat_Absen extends javax.swing.JFrame {
+//>>>>>>> master
     public Riwayat_Absen() {
         initComponents();
+        print_data();
     }
     
     /**
@@ -226,7 +283,34 @@ public class Riwayat_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void Cari_tanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_tanggalActionPerformed
+//<<<<<<< script_fungsi
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No.");
+        model.addColumn("Tanggal");
+        model.addColumn("NIS");
+        model.addColumn("Nama");
+        model.addColumn("Kelas");
+        model.addColumn("Keterangan");
+         try{
+            int no = 1;
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi WHERE tanggal ='"+Tanggal.getText()+"'";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            while(res.next()) {
+               model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
+               res.getString(3), res.getString(4), res.getString(5)});
+            } 
+              
+            Table_siswa.setModel(model);
+            
+        } catch(SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+//=======
         
+//>>>>>>> master
     }//GEN-LAST:event_Cari_tanggalActionPerformed
 
     private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
@@ -238,6 +322,95 @@ public class Riwayat_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Kelas_fActionPerformed
 
     private void Cari_NISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_NISActionPerformed
+//<<<<<<< script_fungsi
+       DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No.");
+        model.addColumn("Tanggal");
+        model.addColumn("NIS");
+        model.addColumn("Nama");
+        model.addColumn("Kelas");
+        model.addColumn("Keterangan");
+         try{
+            int no = 1;
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi WHERE NIS ='"+NIS_f.getText()+"'";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            while(res.next()) {
+               model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
+               res.getString(3), res.getString(4), res.getString(5)});
+            } 
+              
+            Table_siswa.setModel(model);
+            
+        } catch(SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_Cari_NISActionPerformed
+
+    private void Cari_NamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_NamaActionPerformed
+       DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No.");
+        model.addColumn("Tanggal");
+        model.addColumn("NIS");
+        model.addColumn("Nama");
+        model.addColumn("Kelas");
+        model.addColumn("Keterangan");
+         try{
+            int no = 1;
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi WHERE Nama ='"+Nama_f.getText()+"'";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            while(res.next()) {
+               model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
+               res.getString(3), res.getString(4), res.getString(5)});
+            } 
+              
+            Table_siswa.setModel(model);
+            
+        } catch(SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_Cari_NamaActionPerformed
+
+    private void Cari_KelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_KelasActionPerformed
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No.");
+        model.addColumn("Tanggal");
+        model.addColumn("NIS");
+        model.addColumn("Nama");
+        model.addColumn("Kelas");
+        model.addColumn("Keterangan");
+         try{
+            int no = 1;
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi WHERE Kelas ='"+Kelas_f.getText()+"'";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            while(res.next()) {
+               model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
+               res.getString(3), res.getString(4), res.getString(5)});
+            } 
+              
+            Table_siswa.setModel(model);
+            
+        } catch(SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }//GEN-LAST:event_Cari_KelasActionPerformed
+
+    private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
+      print_data();      
+    }//GEN-LAST:event_RefreshActionPerformed
+
+    private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
+       Dashboard D=new Dashboard();
+       D.setVisible(true);
+       dispose();
+//=======
        
     }//GEN-LAST:event_Cari_NISActionPerformed
 
@@ -255,6 +428,7 @@ public class Riwayat_Absen extends javax.swing.JFrame {
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
       
+//>>>>>>> master
     }//GEN-LAST:event_KembaliActionPerformed
 
     /**

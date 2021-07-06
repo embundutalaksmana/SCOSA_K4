@@ -1,6 +1,63 @@
+import konfigurasi.CONFIG;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Embun Duta Laksmana
+ */
+public class Edit_Absen extends javax.swing.JFrame {
+ public void bersih(){
+        NIS_f.setEditable(true);
+        NIS_f.setText(null);
+        Ket.setText(null);
+    }
+     private void print_data(){
+         int row=Table_siswa.getRowCount();
+         for (int i = 0; i < row; i++) {
+             model.removeRow(i);
+         }
+        
+         try{
+            int no = 1;
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.Statement stm = conn.createStatement();
+            java.sql.ResultSet res = stm.executeQuery(sql);
+            
+            while(res.next()) {
+               model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
+               res.getString(3), res.getString(4), res.getString(5)});
+            } 
+             
+            Table_siswa.setModel(model);
+            
+        } catch(SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }
+     DefaultTableModel model;
+    public Edit_Absen() {
+        initComponents();
+        String[] judul={"No","Tanggal","NIS","Nama","Kelas","Keterangan"};
+        model=new DefaultTableModel(judul,0);
+        Table_siswa.setModel(model);
+        print_data();
+                
+
 public class Edit_Absen extends javax.swing.JFrame {
     public Edit_Absen() {
         initComponents();
+
     }
 
     /**
@@ -218,7 +275,18 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_KetActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
-        
+
+        try{
+            String sql = "update presensi set Tanggal='"+Tanggal.getText()+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
+                    + " Keterangan='"+Ket.getText()+"',Kelas='"+Kelas_f.getText()+"' where NIS='"+NIS_f.getText()+"'";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "DATA BERHASIL DI UPDATE");
+            print_data();
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_EditActionPerformed
 
     private void NIS_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NIS_fActionPerformed
@@ -226,7 +294,10 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       
+
+       Dashboard D=new Dashboard();
+       D.setVisible(true);
+       dispose();
     }//GEN-LAST:event_KembaliActionPerformed
 
     private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
@@ -234,7 +305,16 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Kelas_fActionPerformed
 
     private void HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusActionPerformed
-      
+      try{
+            String sql = "DELETE FROM presensi where NIS='"+NIS_f.getText()+"'";
+            java.sql.Connection conn = (Connection)CONFIG.configDB();
+            java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "DATA BERHASIL DI HAPUS");
+            print_data();
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_HapusActionPerformed
 
     private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
@@ -246,7 +326,17 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void Table_siswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_siswaMouseClicked
-      
+        
+        int a=Table_siswa.getSelectedRow();
+        
+        if(a>-1){
+            Tanggal.setText(model.getValueAt(a, 1).toString());
+            NIS_f.setText(model.getValueAt(a, 2).toString());
+            Nama_f.setText(model.getValueAt(a, 3).toString());
+            Ket.setText(model.getValueAt(a, 5).toString());
+            Kelas_f.setText(model.getValueAt(a, 4).toString());
+                       // tanggal(1),NIS(2),Nama(3),Kelas(4),keterangan(5)   
+        }
     }//GEN-LAST:event_Table_siswaMouseClicked
 
     /**
