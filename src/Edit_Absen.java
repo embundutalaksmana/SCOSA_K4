@@ -1,5 +1,5 @@
-public class Input_Absen extends javax.swing.JFrame {    
-    public Input_Absen() {
+public class Edit_Absen extends javax.swing.JFrame {
+    public Edit_Absen() {
         initComponents();
     }
 
@@ -13,7 +13,7 @@ public class Input_Absen extends javax.swing.JFrame {
     private void initComponents() {
 
         Ket = new javax.swing.JTextField();
-        Absen = new javax.swing.JButton();
+        Edit = new javax.swing.JButton();
         Tahun3 = new javax.swing.JLabel();
         Tahun1 = new javax.swing.JLabel();
         Kelas_f = new javax.swing.JTextField();
@@ -28,6 +28,7 @@ public class Input_Absen extends javax.swing.JFrame {
         Table_siswa = new javax.swing.JTable();
         Tahun5 = new javax.swing.JLabel();
         Kembali = new javax.swing.JButton();
+        Hapus = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,10 +38,10 @@ public class Input_Absen extends javax.swing.JFrame {
             }
         });
 
-        Absen.setText("Absen");
-        Absen.addActionListener(new java.awt.event.ActionListener() {
+        Edit.setText("Edit");
+        Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AbsenActionPerformed(evt);
+                EditActionPerformed(evt);
             }
         });
 
@@ -71,8 +72,7 @@ public class Input_Absen extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("Silahkan Mengisi Presensi");
+        jLabel1.setText("Edit Presensi");
 
         jLabel2.setText("Tanggal: ");
 
@@ -93,9 +93,14 @@ public class Input_Absen extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Table_siswa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_siswaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Table_siswa);
 
-        Tahun5.setText("DATA SISWA");
+        Tahun5.setText("DATA PRESENSI SISWA");
 
         Kembali.setText("Kembali");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
@@ -104,14 +109,17 @@ public class Input_Absen extends javax.swing.JFrame {
             }
         });
 
+        Hapus.setText("Hapus");
+        Hapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(117, 117, 117))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -143,19 +151,24 @@ public class Input_Absen extends javax.swing.JFrame {
                                     .addComponent(Ket, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(Absen))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(67, 67, 67)
                                 .addComponent(Tahun3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(Tahun5))
+                                .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(Kembali)))
+                        .addComponent(Kembali))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(Tahun5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -172,13 +185,15 @@ public class Input_Absen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(Absen)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(Edit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Hapus))
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Tahun2)
                             .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Tahun1)
                             .addComponent(Nama_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -187,11 +202,11 @@ public class Input_Absen extends javax.swing.JFrame {
                             .addComponent(Tahun4)
                             .addComponent(Ket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
-                        .addComponent(Kembali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addComponent(Tahun5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Kembali)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(Tahun5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -202,29 +217,37 @@ public class Input_Absen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_KetActionPerformed
 
-    private void AbsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbsenActionPerformed
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         
-    }//GEN-LAST:event_AbsenActionPerformed
-
-    private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Kelas_fActionPerformed
+    }//GEN-LAST:event_EditActionPerformed
 
     private void NIS_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NIS_fActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NIS_fActionPerformed
 
-    private void Nama_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nama_fActionPerformed
+    private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
+       
+    }//GEN-LAST:event_KembaliActionPerformed
+
+    private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Nama_fActionPerformed
+    }//GEN-LAST:event_Kelas_fActionPerformed
+
+    private void HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusActionPerformed
+      
+    }//GEN-LAST:event_HapusActionPerformed
 
     private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TanggalActionPerformed
 
-    private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
+    private void Nama_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nama_fActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Nama_fActionPerformed
+
+    private void Table_siswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_siswaMouseClicked
       
-    }//GEN-LAST:event_KembaliActionPerformed
+    }//GEN-LAST:event_Table_siswaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -262,7 +285,8 @@ public class Input_Absen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Absen;
+    private javax.swing.JButton Edit;
+    private javax.swing.JButton Hapus;
     private javax.swing.JTextField Kelas_f;
     private javax.swing.JButton Kembali;
     private javax.swing.JTextField Ket;
