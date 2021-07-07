@@ -1,4 +1,3 @@
-//<<<<<<< script_fungsi
 
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
@@ -52,9 +51,6 @@ public class Riwayat_Absen extends javax.swing.JFrame {
             System.out.println("Error : " + e.getMessage());
         }
     }
-//=======
-public class Riwayat_Absen extends javax.swing.JFrame {
-//>>>>>>> master
     public Riwayat_Absen() {
         initComponents();
         print_data();
@@ -283,7 +279,6 @@ public class Riwayat_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void Cari_tanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_tanggalActionPerformed
-//<<<<<<< script_fungsi
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No.");
         model.addColumn("Tanggal");
@@ -308,9 +303,6 @@ public class Riwayat_Absen extends javax.swing.JFrame {
         } catch(SQLException e) {
             System.out.println("Error : " + e.getMessage());
         }
-//=======
-        
-//>>>>>>> master
     }//GEN-LAST:event_Cari_tanggalActionPerformed
 
     private void TanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TanggalActionPerformed
@@ -322,7 +314,6 @@ public class Riwayat_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Kelas_fActionPerformed
 
     private void Cari_NISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_NISActionPerformed
-//<<<<<<< script_fungsi
        DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No.");
         model.addColumn("Tanggal");
@@ -410,25 +401,6 @@ public class Riwayat_Absen extends javax.swing.JFrame {
        Dashboard D=new Dashboard();
        D.setVisible(true);
        dispose();
-//=======
-       
-    }//GEN-LAST:event_Cari_NISActionPerformed
-
-    private void Cari_NamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_NamaActionPerformed
-       
-    }//GEN-LAST:event_Cari_NamaActionPerformed
-
-    private void Cari_KelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cari_KelasActionPerformed
-       
-    }//GEN-LAST:event_Cari_KelasActionPerformed
-
-    private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
-          
-    }//GEN-LAST:event_RefreshActionPerformed
-
-    private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-      
-//>>>>>>> master
     }//GEN-LAST:event_KembaliActionPerformed
 
     /**

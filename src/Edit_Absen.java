@@ -53,11 +53,6 @@ public class Edit_Absen extends javax.swing.JFrame {
         Table_siswa.setModel(model);
         print_data();
                 
-
-public class Edit_Absen extends javax.swing.JFrame {
-    public Edit_Absen() {
-        initComponents();
-
     }
 
     /**
@@ -275,7 +270,6 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_KetActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
-
         try{
             String sql = "update presensi set Tanggal='"+Tanggal.getText()+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
                     + " Keterangan='"+Ket.getText()+"',Kelas='"+Kelas_f.getText()+"' where NIS='"+NIS_f.getText()+"'";
@@ -294,7 +288,6 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-
        Dashboard D=new Dashboard();
        D.setVisible(true);
        dispose();

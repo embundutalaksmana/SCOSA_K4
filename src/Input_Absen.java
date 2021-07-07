@@ -1,3 +1,4 @@
+
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -50,9 +51,6 @@ public class Input_Absen extends javax.swing.JFrame {
             System.out.println("Error : " + e.getMessage());
         }
     }
-
-public class Input_Absen extends javax.swing.JFrame {    
-
     public Input_Absen() {
         initComponents();
         print_data();
@@ -224,9 +222,6 @@ public class Input_Absen extends javax.swing.JFrame {
                     .addComponent(Tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Tahun3)
                     .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
@@ -239,10 +234,6 @@ public class Input_Absen extends javax.swing.JFrame {
                             .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Tahun2)
-                            .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Tahun1)
                             .addComponent(Nama_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -252,7 +243,6 @@ public class Input_Absen extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(Kembali)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addComponent(Tahun5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -267,7 +257,6 @@ public class Input_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_KetActionPerformed
 
     private void AbsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbsenActionPerformed
-//<<<<<<< script_fungsi
         try{
             String sql = "INSERT INTO presensi(TANGGAL,NIS,NAMA,KELAS,KETERANGAN) VALUES ('"+Tanggal.getText()+"' , '"+NIS_f.getText()+"' , '"+Nama_f.getText()+"' , '"+Kelas_f.getText()+"' , '"+Ket.getText()+"')";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
@@ -280,15 +269,6 @@ public class Input_Absen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AbsenActionPerformed
 
-//=======
-        
-    }//GEN-LAST:event_AbsenActionPerformed
-
-    private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Kelas_fActionPerformed
-
-//>>>>>>> master
     private void NIS_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NIS_fActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NIS_fActionPerformed
@@ -302,7 +282,6 @@ public class Input_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_TanggalActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-//<<<<<<< script_fungsi
        Dashboard D=new Dashboard();
        D.setVisible(true);
        dispose();
@@ -312,11 +291,6 @@ public class Input_Absen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Kelas_fActionPerformed
 
-//=======
-      
-    }//GEN-LAST:event_KembaliActionPerformed
-
-//>>>>>>> master
     /**
      * @param args the command line arguments
      */
