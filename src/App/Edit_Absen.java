@@ -285,7 +285,7 @@ public class Edit_Absen extends javax.swing.JFrame {
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
        Dashboard D=new Dashboard();
        D.setVisible(true);
-       dispose();
+       this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
 
     private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed

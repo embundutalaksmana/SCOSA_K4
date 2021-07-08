@@ -6,25 +6,11 @@ import java.sql.SQLException;
 import javax.swing.JTextField;
 import konfigurasi.CONFIG;
 import App.Login;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Embun Duta Laksmana
- */
 public class Dashboard extends javax.swing.JFrame {
-
-    private void print(){
-        Login L=new Login();
-        UserName.setText(L.Username.getText());
-    };
+    
     public Dashboard() {
         initComponents();
-        print();
        
     }
 
@@ -135,23 +121,23 @@ public class Dashboard extends javax.swing.JFrame {
     private void RiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatActionPerformed
        Riwayat_Absen RA=new Riwayat_Absen();
        RA.setVisible(true);
-       dispose();
+       this.dispose();
     }//GEN-LAST:event_RiwayatActionPerformed
 
     private void KeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarActionPerformed
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_KeluarActionPerformed
 
     private void InputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputActionPerformed
         Input_Absen IA=new Input_Absen();
         IA.setVisible(true);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_InputActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         Edit_Absen EA=new Edit_Absen();
         EA.setVisible(true);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_EditActionPerformed
 
     /**
