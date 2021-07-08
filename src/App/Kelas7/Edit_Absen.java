@@ -1,5 +1,4 @@
 package App.Kelas7;
-
 import App.*;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
@@ -23,7 +22,7 @@ public class Edit_Absen extends javax.swing.JFrame {
         
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi order by kelas ASC";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi where kelas=7 order by kelas ASC";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -284,7 +283,7 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard D=new Dashboard();
+       Dashboard7 D=new Dashboard7();
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed

@@ -400,7 +400,7 @@ public class Riwayat_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard D=new Dashboard();
+       Dashboard8 D=new Dashboard8();
        D.setVisible(true);
        dispose();
     }//GEN-LAST:event_KembaliActionPerformed

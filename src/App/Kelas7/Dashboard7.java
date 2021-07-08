@@ -1,12 +1,13 @@
-package App;
+package App.Kelas7;
+import App.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JTextField;
 import konfigurasi.CONFIG;
 
-public class Dashboard extends javax.swing.JFrame {
+public class Dashboard7 extends javax.swing.JFrame {
     
-    public Dashboard() {
+    public Dashboard7() {
         initComponents();
        
     }
@@ -62,7 +63,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setText("Selamat Datang");
 
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        UserName.setText(".........");
+        UserName.setText("wali kelas 7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

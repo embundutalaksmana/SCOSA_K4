@@ -40,7 +40,7 @@ public class Input_Absen extends javax.swing.JFrame {
         model.addColumn("Alamat");
          try{
             int no = 1;
-            String sql = "SELECT * FROM identitas order by Kelas asc";
+            String sql = "SELECT NIS,NAMA,KELAS,ALAMAT FROM identitas where KELAS =7";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -272,7 +272,7 @@ public class Input_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard D=new Dashboard();
+       Dashboard7 D=new Dashboard7();
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
