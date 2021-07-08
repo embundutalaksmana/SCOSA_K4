@@ -1,3 +1,5 @@
+package App;
+
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import konfigurasi.CONFIG;
@@ -112,6 +114,7 @@ public class Login extends javax.swing.JFrame {
                 if (Password.getText().equals(res.getString("password"))){
                 JOptionPane.showMessageDialog(null, "Login Berhasil");
                 Dashboard Da=new Dashboard();
+                Da.UserName.setText(res.getString(1));
                 Da.setVisible(true);
                 this.dispose();
                 } else {
@@ -173,7 +176,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Masuk;
     private javax.swing.JTextField Password;
-    private javax.swing.JTextField Username;
+    public javax.swing.JTextField Username;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

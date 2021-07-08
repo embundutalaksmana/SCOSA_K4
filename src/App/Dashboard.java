@@ -1,9 +1,11 @@
+package App;
+
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JTextField;
 import konfigurasi.CONFIG;
-
+import App.Login;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,11 +18,14 @@ import konfigurasi.CONFIG;
  */
 public class Dashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Dashboard
-     */
+    private void print(){
+        Login L=new Login();
+        UserName.setText(L.Username.getText());
+    };
     public Dashboard() {
         initComponents();
+        print();
+       
     }
 
     /**
@@ -38,7 +43,6 @@ public class Dashboard extends javax.swing.JFrame {
         Keluar = new javax.swing.JButton();
         Edit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        Usernamef = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,11 +78,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel2.setText("Selamat Datang");
 
-        Usernamef.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernamefActionPerformed(evt);
-            }
-        });
+        UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UserName.setText(".........");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,11 +100,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(UserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Usernamef, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,8 +117,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Usernamef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(UserName)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Input)
                     .addComponent(Riwayat))
@@ -152,10 +153,6 @@ public class Dashboard extends javax.swing.JFrame {
         EA.setVisible(true);
         dispose();
     }//GEN-LAST:event_EditActionPerformed
-
-    private void UsernamefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernamefActionPerformed
-              
-    }//GEN-LAST:event_UsernamefActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +194,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton Input;
     private javax.swing.JButton Keluar;
     private javax.swing.JButton Riwayat;
-    private javax.swing.JTextField Usernamef;
+    public static final javax.swing.JLabel UserName = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

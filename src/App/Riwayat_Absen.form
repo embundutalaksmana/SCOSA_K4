@@ -26,13 +26,8 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="102" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
@@ -45,7 +40,6 @@
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Component id="NIS_f" min="-2" pref="79" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="Tanggal" alignment="1" min="-2" pref="79" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="Tahun3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -53,8 +47,14 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="tnggl" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Cari_Nama" min="-2" max="-2" attributes="0"/>
                           <Component id="Cari_Kelas" min="-2" max="-2" attributes="0"/>
@@ -99,13 +99,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Tanggal" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Cari_tanggal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="tnggl" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Tahun2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="NIS_f" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -206,11 +206,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cari_tanggalActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="Tanggal">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TanggalActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="Tahun3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Kelas: "/>
@@ -259,6 +254,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KembaliActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="tnggl">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+      </Properties>
+      <Events>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="tngglPropertyChange"/>
       </Events>
     </Component>
   </SubComponents>
