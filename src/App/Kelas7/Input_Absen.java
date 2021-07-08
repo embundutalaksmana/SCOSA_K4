@@ -1,6 +1,4 @@
 package App.Kelas7;
-
-
 import App.*;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
@@ -23,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
 public class Input_Absen extends javax.swing.JFrame {
 
     private String tgl;
+
+    
  public void bersih(){
         NIS_f.setEditable(true);
         NIS_f.setText(null);
@@ -158,6 +158,11 @@ public class Input_Absen extends javax.swing.JFrame {
         });
 
         tnggl.setDateFormatString("yyyy-MM-dd");
+        tnggl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tngglPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

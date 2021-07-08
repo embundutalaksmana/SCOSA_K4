@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 public class Edit_Absen extends javax.swing.JFrame {
 
     private String tgl;
+
  public void bersih(){
         NIS_f.setEditable(true);
         NIS_f.setText(null);
