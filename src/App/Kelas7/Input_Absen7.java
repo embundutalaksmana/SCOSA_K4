@@ -1,5 +1,4 @@
 package App.Kelas7;
-import App.*;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
