@@ -294,7 +294,7 @@ public class Edit_Absen extends javax.swing.JFrame {
 
     private void HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusActionPerformed
       try{
-            String sql = "DELETE FROM presensi where NIS='"+NIS_f.getText()+"' and Tanggal='"+tnggl.getDateFormatString()+"'";
+            String sql = "DELETE FROM presensi where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -314,7 +314,7 @@ public class Edit_Absen extends javax.swing.JFrame {
         int a=Table_siswa.getSelectedRow();
         
         if(a>-1){
-            tnggl.setDateFormatString((String)model.getValueAt(a, 1).toString());
+            tgl=(model.getValueAt(a, 1).toString());
             NIS_f.setText(model.getValueAt(a, 2).toString());
             Nama_f.setText(model.getValueAt(a, 3).toString());
             Kelas_f.setText(model.getValueAt(a, 4).toString());
