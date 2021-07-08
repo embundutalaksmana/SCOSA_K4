@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Embun Duta Laksmana
  */
-public class Riwayat_Absen extends javax.swing.JFrame {
+public class Riwayat_Absen8 extends javax.swing.JFrame {
 
     private String tgl;
 
@@ -57,7 +57,7 @@ public class Riwayat_Absen extends javax.swing.JFrame {
             System.out.println("Error : " + e.getMessage());
         }
     }
-    public Riwayat_Absen() {
+    public Riwayat_Absen8() {
         initComponents();
         print_data();
     }

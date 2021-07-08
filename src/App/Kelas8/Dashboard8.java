@@ -117,7 +117,7 @@ public class Dashboard8 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatActionPerformed
-       Riwayat_Absen RA=new Riwayat_Absen();
+       Riwayat_Absen8 RA=new Riwayat_Absen8();
        RA.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_RiwayatActionPerformed
@@ -127,13 +127,13 @@ public class Dashboard8 extends javax.swing.JFrame {
     }//GEN-LAST:event_KeluarActionPerformed
 
     private void InputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputActionPerformed
-        Input_Absen IA=new Input_Absen();
+        Input_Absen8 IA=new Input_Absen8();
         IA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_InputActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
-        Edit_Absen EA=new Edit_Absen();
+        Edit_Absen8 EA=new Edit_Absen8();
         EA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_EditActionPerformed

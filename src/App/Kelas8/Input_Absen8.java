@@ -1,6 +1,4 @@
-package App.Kelas9;
-
-
+package App.Kelas8;
 import App.*;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
@@ -20,9 +18,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Embun Duta Laksmana
  */
-public class Input_Absen extends javax.swing.JFrame {
+public class Input_Absen8 extends javax.swing.JFrame {
 
     private String tgl;
+
+    
  public void bersih(){
         NIS_f.setEditable(true);
         NIS_f.setText(null);
@@ -40,7 +40,7 @@ public class Input_Absen extends javax.swing.JFrame {
         model.addColumn("Alamat");
          try{
             int no = 1;
-            String sql = "SELECT * FROM identitas where kelas=9";
+            String sql = "SELECT NIS,NAMA,KELAS,ALAMAT FROM identitas where KELAS =7";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -56,7 +56,7 @@ public class Input_Absen extends javax.swing.JFrame {
             System.out.println("Error : " + e.getMessage());
         }
     }
-    public Input_Absen() {
+    public Input_Absen8() {
         initComponents();
         print_data();
     }
@@ -158,6 +158,11 @@ public class Input_Absen extends javax.swing.JFrame {
         });
 
         tnggl.setDateFormatString("yyyy-MM-dd");
+        tnggl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tngglPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -272,7 +277,7 @@ public class Input_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard9 D=new Dashboard9();
+       Dashboard8 D=new Dashboard8();
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
