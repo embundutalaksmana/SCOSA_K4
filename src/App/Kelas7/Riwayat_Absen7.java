@@ -277,7 +277,7 @@ public class Riwayat_Absen7 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT * FROM presensi WHERE tanggal ='"+tnggal.getText()+"' and kelas=7";
+            String sql = "SELECT * FROM presensi WHERE tanggal ='"+tnggal.getText()+"' and kelas =7";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
