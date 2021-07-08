@@ -3,7 +3,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JTextField;
 import konfigurasi.CONFIG;
-import App.Login;
 
 public class Dashboard extends javax.swing.JFrame {
     
