@@ -40,7 +40,7 @@ public class Input_Absen extends javax.swing.JFrame {
         model.addColumn("Alamat");
          try{
             int no = 1;
-            String sql = "SELECT * FROM identitas order by Kelas asc";
+            String sql = "SELECT * FROM identitas where kelas=9";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);

@@ -41,7 +41,7 @@ public class Riwayat_Absen extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi where kelas=8";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);

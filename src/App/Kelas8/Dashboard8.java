@@ -63,7 +63,7 @@ public class Dashboard8 extends javax.swing.JFrame {
         jLabel2.setText("Selamat Datang");
 
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        UserName.setText("Nami");
+        UserName.setText("walikelas 8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
