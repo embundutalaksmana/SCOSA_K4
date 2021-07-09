@@ -1,8 +1,8 @@
 package App.Kelas_7;
-
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -50,7 +50,6 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         model=new DefaultTableModel(judul,0);
         Table_siswa.setModel(model);
         print_data();
-        
                 
     }
 
@@ -77,8 +76,8 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         Kembali = new javax.swing.JButton();
         Hapus = new javax.swing.JButton();
         Presen = new javax.swing.JComboBox<>();
-        Refresh = new javax.swing.JButton();
         tnggl = new com.toedter.calendar.JDateChooser();
+        Refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,7 +129,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table_siswa);
 
-        Tahun5.setText("DATA PRESENSI SISWA KELAS 7");
+        Tahun5.setText("DATA PRESENSI SISWA KELAS 9");
 
         Kembali.setText("Kembali");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
@@ -148,14 +147,19 @@ public class Edit_Absen7 extends javax.swing.JFrame {
 
         Presen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hadir", "Sakit", "Izin", "Alpha" }));
 
+        tnggl.setDateFormatString("yyyy-MM-dd");
+        tnggl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tngglPropertyChange(evt);
+            }
+        });
+
         Refresh.setText("Refresh");
         Refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RefreshActionPerformed(evt);
             }
         });
-
-        tnggl.setDateFormatString("yyyy-MM-dd");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,7 +210,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jLabel1)
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,7 +237,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Kembali)
                             .addComponent(Refresh))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(Tahun5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,7 +289,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void Table_siswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_siswaMouseClicked
-        try{
+       try{
             DefaultTableModel m=(DefaultTableModel)Table_siswa.getModel();
             int a=Table_siswa.getSelectedRow();
             java.util.Date dat= new SimpleDateFormat("yyyy-MM-dd").parse((String)m.getValueAt(a, 1));
@@ -306,9 +310,9 @@ public class Edit_Absen7 extends javax.swing.JFrame {
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
         if(tnggl.getDate()!=null){
-           SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
-           tgl=ft.format(tnggl.getDate());
-       }
+            SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
+            tgl=ft.format(tnggl.getDate());
+        }
     }//GEN-LAST:event_tngglPropertyChange
 public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -332,6 +336,9 @@ public static void main(String args[]) {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Edit_Absen7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         
 
