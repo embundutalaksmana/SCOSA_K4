@@ -127,7 +127,7 @@
     <Component class="javax.swing.JLabel" name="UserName">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="........."/>
+        <Property name="text" type="java.lang.String" value="Walikelas 7"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="25"/>

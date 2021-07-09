@@ -47,11 +47,6 @@
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Component id="NIS_f" min="-2" pref="79" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="Tahun3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Kelas_f" min="-2" pref="79" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -64,7 +59,6 @@
                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Cari_Nama" min="-2" max="-2" attributes="0"/>
-                          <Component id="Cari_Kelas" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="Cari_tanggal" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -133,13 +127,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Tahun3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Kelas_f" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Cari_Kelas" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
               <Component id="Refresh" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="122" max="-2" attributes="0"/>
@@ -214,16 +202,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cari_tanggalActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="Tahun3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Kelas: "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="Kelas_f">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Kelas_fActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="Cari_NIS">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cari"/>
@@ -238,14 +216,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cari_NamaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="Cari_Kelas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cari"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cari_KelasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Refresh">

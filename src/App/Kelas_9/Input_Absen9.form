@@ -58,26 +58,16 @@
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="Tahun3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Kelas_f" min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                              <Component id="Absen" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                      <Component id="Tahun5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="Absen" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="Kembali" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+                      <Component id="Tahun5" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -90,15 +80,9 @@
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Tahun3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Kelas_f" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="tnggl" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="tnggl" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -144,20 +128,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AbsenActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="Tahun3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Kelas: "/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="Tahun1">
       <Properties>
         <Property name="text" type="java.lang.String" value="NAMA: "/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="Kelas_f">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Kelas_fActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Tahun2">
       <Properties>
@@ -218,7 +192,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="Tahun5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DATA SISWA"/>
+        <Property name="text" type="java.lang.String" value="DATA SISWA KELAS 9"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Kembali">
@@ -251,6 +225,9 @@
       <Properties>
         <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
       </Properties>
+      <Events>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="tngglPropertyChange"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -3,6 +3,9 @@ package App;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import konfigurasi.CONFIG;
+import App.Kelas_7.Dashboard7;
+import App.Kelas_8.Dashboard8;
+import App.Kelas_9.Dashboard9;
 public class Login extends javax.swing.JFrame {
 
     /**
@@ -113,10 +116,23 @@ public class Login extends javax.swing.JFrame {
             if (res.next()) {
                 if (Password.getText().equals(res.getString("password"))){
                 JOptionPane.showMessageDialog(null, "Login Berhasil");
-                Dashboard Da=new Dashboard();
-                Da.UserName.setText(res.getString(1));
-                Da.setVisible(true);
+                
                 this.dispose();
+                    if(Username.getText().equals("walikelas7")){
+                        Dashboard7 D7=new Dashboard7();
+                        D7.setVisible(true);
+                        this.dispose();
+                    }else if(Username.getText().equals("walikelas8")){
+                        Dashboard8 D8=new Dashboard8();
+                        D8.setVisible(true);
+                        this.dispose();
+                    }else if(Username.getText().equals("walikelas9")){
+                        Dashboard9 D9=new Dashboard9();
+                        D9.setVisible(true);
+                        this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Data tidak ditemukan");
+                    }
                 } else {
                         JOptionPane.showMessageDialog(rootPane,"Password Salah");
                         Password.setText("");

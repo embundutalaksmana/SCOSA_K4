@@ -1,18 +1,23 @@
-package App;
-
+package App.Kelas_8;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-public class Edit_Absen extends javax.swing.JFrame {
+public class Edit_Absen8 extends javax.swing.JFrame {
 
     private String tgl;
  public void bersih(){
         NIS_f.setEditable(true);
         NIS_f.setText(null);
+        Nama_f.setText(null);
+        tnggl.setDate(null);
     }
      private void print_data(){
          int row=Table_siswa.getRowCount();
@@ -22,14 +27,14 @@ public class Edit_Absen extends javax.swing.JFrame {
         
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi order by kelas ASC";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 order by NAMA ASC";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4), res.getString(5)});
+               res.getString(3), res.getString(4)});
             } 
              
             Table_siswa.setModel(model);
@@ -39,9 +44,9 @@ public class Edit_Absen extends javax.swing.JFrame {
         }
     }
      DefaultTableModel model;
-    public Edit_Absen() {
+    public Edit_Absen8() {
         initComponents();
-        String[] judul={"No","Tanggal","NIS","Nama","Kelas","Keterangan"};
+        String[] judul={"No","Tanggal","NIS","Nama","Keterangan"};
         model=new DefaultTableModel(judul,0);
         Table_siswa.setModel(model);
         print_data();
@@ -58,9 +63,7 @@ public class Edit_Absen extends javax.swing.JFrame {
     private void initComponents() {
 
         Edit = new javax.swing.JButton();
-        Tahun3 = new javax.swing.JLabel();
         Tahun1 = new javax.swing.JLabel();
-        Kelas_f = new javax.swing.JTextField();
         Tahun2 = new javax.swing.JLabel();
         Tahun4 = new javax.swing.JLabel();
         NIS_f = new javax.swing.JTextField();
@@ -85,15 +88,7 @@ public class Edit_Absen extends javax.swing.JFrame {
             }
         });
 
-        Tahun3.setText("Kelas: ");
-
         Tahun1.setText("NAMA: ");
-
-        Kelas_f.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Kelas_fActionPerformed(evt);
-            }
-        });
 
         Tahun2.setText("NIS: ");
 
@@ -134,7 +129,7 @@ public class Edit_Absen extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table_siswa);
 
-        Tahun5.setText("DATA PRESENSI SISWA");
+        Tahun5.setText("DATA PRESENSI SISWA KELAS 9");
 
         Kembali.setText("Kembali");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
@@ -184,22 +179,14 @@ public class Edit_Absen extends javax.swing.JFrame {
                             .addComponent(Nama_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Presen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Tahun3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -224,9 +211,9 @@ public class Edit_Absen extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
@@ -235,13 +222,9 @@ public class Edit_Absen extends javax.swing.JFrame {
                         .addComponent(Hapus))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Tahun3)
-                                .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Tahun2)
-                                .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Tahun2)
+                            .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Tahun1)
@@ -254,7 +237,7 @@ public class Edit_Absen extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Kembali)
                             .addComponent(Refresh))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(Tahun5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,8 +249,8 @@ public class Edit_Absen extends javax.swing.JFrame {
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         try{
-            String sql = "update presensi set Tanggal='"+tgl+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
-                    + " Keterangan='"+Presen.getSelectedItem()+"',Kelas='"+Kelas_f.getText()+"' where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
+            String sql = "update presensi8 set Tanggal='"+tgl+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
+                    + " Keterangan='"+Presen.getSelectedItem()+"' where NIS='"+NIS_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -283,18 +266,14 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard D=new Dashboard();
+       Dashboard8 D=new Dashboard8();
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
 
-    private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Kelas_fActionPerformed
-
     private void HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusActionPerformed
       try{
-            String sql = "DELETE FROM presensi where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
+            String sql = "DELETE FROM presensi8 where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -310,38 +289,68 @@ public class Edit_Absen extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void Table_siswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_siswaMouseClicked
-        
-        int a=Table_siswa.getSelectedRow();
-        
-        if(a>-1){
-            tgl=(model.getValueAt(a, 1).toString());
-            NIS_f.setText(model.getValueAt(a, 2).toString());
-            Nama_f.setText(model.getValueAt(a, 3).toString());
-            Kelas_f.setText(model.getValueAt(a, 4).toString());
-                       // tanggal(1),NIS(2),Nama(3),Kelas(4),keterangan(5)   
+       try{
+            DefaultTableModel m=(DefaultTableModel)Table_siswa.getModel();
+            int a=Table_siswa.getSelectedRow();
+            java.util.Date dat= new SimpleDateFormat("yyyy-MM-dd").parse((String)m.getValueAt(a, 1));
+            if(a>-1){
+            tnggl.setDate(dat);
+            NIS_f.setText(m.getValueAt(a, 2).toString());
+            Nama_f.setText(m.getValueAt(a, 3).toString());  
+        }
+        }catch(ParseException ex){
+            Logger.getLogger(Edit_Absen8.class.getName()).log(Level.SEVERE,null,ex);
         }
     }//GEN-LAST:event_Table_siswaMouseClicked
 
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
        print_data();
+       bersih();
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
         if(tnggl.getDate()!=null){
-           SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
-           tgl=ft.format(tnggl.getDate());
-       }
+            SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
+            tgl=ft.format(tnggl.getDate());
+        }
     }//GEN-LAST:event_tngglPropertyChange
+public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Edit_Absen8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Edit_Absen8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Edit_Absen8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Edit_Absen8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        
 
-    /**
-     * @param args the command line arguments
-     */
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Edit_Absen8().setVisible(true);
+            }
+        });
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Edit;
     private javax.swing.JButton Hapus;
-    private javax.swing.JTextField Kelas_f;
     private javax.swing.JButton Kembali;
     private javax.swing.JTextField NIS_f;
     private javax.swing.JTextField Nama_f;
@@ -350,7 +359,6 @@ public class Edit_Absen extends javax.swing.JFrame {
     private javax.swing.JTable Table_siswa;
     private javax.swing.JLabel Tahun1;
     private javax.swing.JLabel Tahun2;
-    private javax.swing.JLabel Tahun3;
     private javax.swing.JLabel Tahun4;
     private javax.swing.JLabel Tahun5;
     private javax.swing.JLabel jLabel1;
