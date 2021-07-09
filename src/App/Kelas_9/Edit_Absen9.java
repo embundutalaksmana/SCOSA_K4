@@ -57,9 +57,7 @@ public class Edit_Absen9 extends javax.swing.JFrame {
     private void initComponents() {
 
         Edit = new javax.swing.JButton();
-        Tahun3 = new javax.swing.JLabel();
         Tahun1 = new javax.swing.JLabel();
-        Kelas_f = new javax.swing.JTextField();
         Tahun2 = new javax.swing.JLabel();
         Tahun4 = new javax.swing.JLabel();
         NIS_f = new javax.swing.JTextField();
@@ -84,15 +82,7 @@ public class Edit_Absen9 extends javax.swing.JFrame {
             }
         });
 
-        Tahun3.setText("Kelas: ");
-
         Tahun1.setText("NAMA: ");
-
-        Kelas_f.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Kelas_fActionPerformed(evt);
-            }
-        });
 
         Tahun2.setText("NIS: ");
 
@@ -182,20 +172,11 @@ public class Edit_Absen9 extends javax.swing.JFrame {
                         .addComponent(Nama_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Presen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Tahun3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Hapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,13 +213,9 @@ public class Edit_Absen9 extends javax.swing.JFrame {
                         .addComponent(Hapus))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Tahun3)
-                                .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Tahun2)
-                                .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Tahun2)
+                            .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Tahun1)
@@ -264,7 +241,7 @@ public class Edit_Absen9 extends javax.swing.JFrame {
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         try{
             String sql = "update presensi9 set Tanggal='"+tgl+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
-                    + " Keterangan='"+Presen.getSelectedItem()+"',Kelas='"+Kelas_f.getText()+"' where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
+                    + " Keterangan='"+Presen.getSelectedItem()+"' where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -284,10 +261,6 @@ public class Edit_Absen9 extends javax.swing.JFrame {
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
-
-    private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Kelas_fActionPerformed
 
     private void HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusActionPerformed
       try{
@@ -314,7 +287,7 @@ public class Edit_Absen9 extends javax.swing.JFrame {
             tgl=(model.getValueAt(a, 1).toString());
             NIS_f.setText(model.getValueAt(a, 2).toString());
             Nama_f.setText(model.getValueAt(a, 3).toString());
-            Kelas_f.setText(model.getValueAt(a, 4).toString());
+            
                        // tanggal(1),NIS(2),Nama(3),Kelas(4),keterangan(5)   
         }
     }//GEN-LAST:event_Table_siswaMouseClicked
@@ -428,7 +401,6 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Edit;
     private javax.swing.JButton Hapus;
-    private javax.swing.JTextField Kelas_f;
     private javax.swing.JButton Kembali;
     private javax.swing.JTextField NIS_f;
     private javax.swing.JTextField Nama_f;
@@ -437,7 +409,6 @@ public static void main(String args[]) {
     private javax.swing.JTable Table_siswa;
     private javax.swing.JLabel Tahun1;
     private javax.swing.JLabel Tahun2;
-    private javax.swing.JLabel Tahun3;
     private javax.swing.JLabel Tahun4;
     private javax.swing.JLabel Tahun5;
     private javax.swing.JLabel jLabel1;
