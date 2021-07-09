@@ -182,11 +182,11 @@ public class Input_Absen9 extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addComponent(Absen))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(Tahun5))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(Kembali)))
+                        .addComponent(Kembali))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(Tahun5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

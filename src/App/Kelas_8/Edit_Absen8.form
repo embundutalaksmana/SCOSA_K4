@@ -194,7 +194,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="Tahun5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DATA PRESENSI SISWA"/>
+        <Property name="text" type="java.lang.String" value="DATA PRESENSI SISWA KELAS 8"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="Kembali">

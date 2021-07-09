@@ -1,9 +1,13 @@
 package App.Kelas_7;
+
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class Edit_Absen7 extends javax.swing.JFrame {
@@ -12,6 +16,8 @@ public class Edit_Absen7 extends javax.swing.JFrame {
  public void bersih(){
         NIS_f.setEditable(true);
         NIS_f.setText(null);
+        Nama_f.setText(null);
+        tnggl.setDate(null);
     }
      private void print_data(){
          int row=Table_siswa.getRowCount();
@@ -44,6 +50,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         model=new DefaultTableModel(judul,0);
         Table_siswa.setModel(model);
         print_data();
+        
                 
     }
 
@@ -280,20 +287,23 @@ public class Edit_Absen7 extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void Table_siswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_siswaMouseClicked
-        
-        int a=Table_siswa.getSelectedRow();
-        
-        if(a>-1){
-            tnggl.setDateFormatString(tgl=model.getValueAt(a, 1).toString());
-            NIS_f.setText(model.getValueAt(a, 2).toString());
-            Nama_f.setText(model.getValueAt(a, 3).toString());
-            
-                       // tanggal(1),NIS(2),Nama(3),Kelas(4),keterangan(5)   
+        try{
+            DefaultTableModel m=(DefaultTableModel)Table_siswa.getModel();
+            int a=Table_siswa.getSelectedRow();
+            java.util.Date dat= new SimpleDateFormat("yyyy-MM-dd").parse((String)m.getValueAt(a, 1));
+            if(a>-1){
+            tnggl.setDate(dat);
+            NIS_f.setText(m.getValueAt(a, 2).toString());
+            Nama_f.setText(m.getValueAt(a, 3).toString());  
+        }
+        }catch(ParseException ex){
+            Logger.getLogger(Edit_Absen7.class.getName()).log(Level.SEVERE,null,ex);
         }
     }//GEN-LAST:event_Table_siswaMouseClicked
 
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
        print_data();
+       bersih();
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange

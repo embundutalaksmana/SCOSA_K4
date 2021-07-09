@@ -125,7 +125,7 @@ public class Input_Absen8 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Table_siswa);
 
-        Tahun5.setText("DATA SISWA");
+        Tahun5.setText("DATA SISWA KELAS 8");
 
         Kembali.setText("Kembali");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
