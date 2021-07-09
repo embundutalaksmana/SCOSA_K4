@@ -34,18 +34,17 @@ public class Riwayat_Absen9 extends javax.swing.JFrame {
         model.addColumn("Tanggal");
         model.addColumn("NIS");
         model.addColumn("Nama");
-        model.addColumn("Kelas");
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi9";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi9";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4), res.getString(5)});
+               res.getString(3), res.getString(4)});
             } 
               
             Table_siswa.setModel(model);
@@ -259,18 +258,17 @@ public class Riwayat_Absen9 extends javax.swing.JFrame {
         model.addColumn("Tanggal");
         model.addColumn("NIS");
         model.addColumn("Nama");
-        model.addColumn("Kelas");
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi9 WHERE TANGGAL ='"+tgl+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi9 WHERE TANGGAL ='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4), res.getString(5)});
+               res.getString(3), res.getString(4)});
             } 
               
             Table_siswa.setModel(model);
@@ -286,17 +284,16 @@ public class Riwayat_Absen9 extends javax.swing.JFrame {
         model.addColumn("Tanggal");
         model.addColumn("NIS");
         model.addColumn("Nama");
-        model.addColumn("Kelas");
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi9 WHERE NIS ='"+NIS_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi9 WHERE NIS ='"+NIS_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4), res.getString(5)});
+               res.getString(3), res.getString(4)});
             } 
               
             Table_siswa.setModel(model);
@@ -312,18 +309,17 @@ public class Riwayat_Absen9 extends javax.swing.JFrame {
         model.addColumn("Tanggal");
         model.addColumn("NIS");
         model.addColumn("Nama");
-        model.addColumn("Kelas");
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi9 WHERE Nama ='"+Nama_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi9 WHERE Nama ='"+Nama_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4), res.getString(5)});
+               res.getString(3), res.getString(4)});
             } 
               
             Table_siswa.setModel(model);
@@ -345,7 +341,7 @@ public class Riwayat_Absen9 extends javax.swing.JFrame {
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
          if(tnggl.getDate()!=null){
-           SimpleDateFormat ft=new SimpleDateFormat("yyyy-mm-dd");
+           SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
            tgl=ft.format(tnggl.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange

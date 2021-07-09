@@ -21,14 +21,14 @@ public class Edit_Absen9 extends javax.swing.JFrame {
         
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi9 order by kelas ASC";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi9 order by NAMA ASC";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4), res.getString(5)});
+               res.getString(3), res.getString(4)});
             } 
              
             Table_siswa.setModel(model);
@@ -40,7 +40,7 @@ public class Edit_Absen9 extends javax.swing.JFrame {
      DefaultTableModel model;
     public Edit_Absen9() {
         initComponents();
-        String[] judul={"No","Tanggal","NIS","Nama","Kelas","Keterangan"};
+        String[] judul={"No","Tanggal","NIS","Nama","Keterangan"};
         model=new DefaultTableModel(judul,0);
         Table_siswa.setModel(model);
         print_data();

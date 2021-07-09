@@ -31,18 +31,17 @@ public class Input_Absen9 extends javax.swing.JFrame {
         model.addColumn("No.");
         model.addColumn("NIS");
         model.addColumn("Nama");
-        model.addColumn("Kelas");
         model.addColumn("Alamat");
          try{
             int no = 1;
-            String sql = "SELECT * FROM identitas9 order by Kelas asc";
+            String sql = "SELECT * FROM identitas9";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4)});
+               res.getString(3)});
             } 
               
             Table_siswa.setModel(model);
