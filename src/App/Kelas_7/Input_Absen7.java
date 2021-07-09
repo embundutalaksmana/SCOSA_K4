@@ -41,7 +41,7 @@ public class Input_Absen7 extends javax.swing.JFrame {
         model.addColumn("Alamat");
          try{
             int no = 1;
-            String sql = "SELECT * FROM identitas order by Kelas asc";
+            String sql = "SELECT * FROM identitas7 order by Kelas asc";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -159,6 +159,11 @@ public class Input_Absen7 extends javax.swing.JFrame {
         });
 
         tnggl.setDateFormatString("yyyy-MM-dd");
+        tnggl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                tngglPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -253,7 +258,7 @@ public class Input_Absen7 extends javax.swing.JFrame {
 
     private void AbsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbsenActionPerformed
         try{
-            String sql = "INSERT INTO presensi(TANGGAL,NIS,NAMA,KELAS,KETERANGAN) VALUES ('"+tgl+"' , '"+NIS_f.getText()+"' , '"+Nama_f.getText()+"' , '"+Kelas_f.getText()+"' , '"+Presen.getSelectedItem()+"')";
+            String sql = "INSERT INTO presensi7(TANGGAL,NIS,NAMA,KELAS,KETERANGAN) VALUES ('"+tgl+"' , '"+NIS_f.getText()+"' , '"+Nama_f.getText()+"' , '"+Kelas_f.getText()+"' , '"+Presen.getSelectedItem()+"')";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -292,10 +297,40 @@ public class Input_Absen7 extends javax.swing.JFrame {
            tgl=ft.format(tnggl.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange
+public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Input_Absen7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Input_Absen7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Input_Absen7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Input_Absen7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
-    /**
-     * @param args the command line arguments
-     */
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Input_Absen7().setVisible(true);
+            }
+        });
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
