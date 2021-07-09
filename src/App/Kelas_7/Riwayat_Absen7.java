@@ -295,7 +295,7 @@ public class Riwayat_Absen7 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 WHERE tanggal ='"+tgl+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 WHERE TANGGAL ='"+tnggl.getDateFormatString()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -408,7 +408,7 @@ public class Riwayat_Absen7 extends javax.swing.JFrame {
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
          if(tnggl.getDate()!=null){
-           SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
+           SimpleDateFormat ft=new SimpleDateFormat("yyyy-mm-dd");
            tgl=ft.format(tnggl.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange
