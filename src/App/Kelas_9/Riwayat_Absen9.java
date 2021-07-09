@@ -269,10 +269,8 @@ public class Riwayat_Absen9 extends javax.swing.JFrame {
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
                res.getString(3), res.getString(4)});
-            } 
-              
+            }  
             Table_siswa.setModel(model);
-            
         } catch(SQLException e) {
             System.out.println("Error : " + e.getMessage());
         }
