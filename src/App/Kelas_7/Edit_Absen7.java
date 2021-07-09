@@ -314,7 +314,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         int a=Table_siswa.getSelectedRow();
         
         if(a>-1){
-            tgl.equals((model.getValueAt(a, 1).toString()));
+            tgl=(model.getValueAt(a, 1).toString());
             NIS_f.setText(model.getValueAt(a, 2).toString());
             Nama_f.setText(model.getValueAt(a, 3).toString());
             Kelas_f.setText(model.getValueAt(a, 4).toString());
