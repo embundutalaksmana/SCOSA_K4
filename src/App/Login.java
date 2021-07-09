@@ -4,7 +4,7 @@ import java.sql.Connection;
 import javax.swing.JOptionPane;
 import konfigurasi.CONFIG;
 import App.Kelas_7.Dashboard7;
-//import App.Kelas8.Dashboard8;
+import App.Kelas_8.Dashboard8;
 //import App.Kelas9.Dashboard9;
 public class Login extends javax.swing.JFrame {
 
@@ -122,11 +122,11 @@ public class Login extends javax.swing.JFrame {
                         Dashboard7 D7=new Dashboard7();
                         D7.setVisible(true);
                         this.dispose();
-                    }/*else if(Username.getText().equals("walikelas8")){
+                    }else if(Username.getText().equals("walikelas8")){
                         Dashboard8 D8=new Dashboard8();
                         D8.setVisible(true);
                         this.dispose();
-                    }else if(Username.getText().equals("walikelas9")){
+                    }/*else if(Username.getText().equals("walikelas9")){
                         Dashboard9 D9=new Dashboard9();
                         D9.setVisible(true);
                         this.dispose();

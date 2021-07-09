@@ -38,7 +38,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi8";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -291,7 +291,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 WHERE TANGGAL ='"+tgl+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi8 WHERE TANGGAL ='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -322,7 +322,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 WHERE NIS ='"+NIS_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi8 WHERE NIS ='"+NIS_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -348,7 +348,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 WHERE Nama ='"+Nama_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi8 WHERE Nama ='"+Nama_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -375,7 +375,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 WHERE Kelas ='"+Kelas_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi8 WHERE Kelas ='"+Kelas_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);

@@ -21,7 +21,7 @@ public class Edit_Absen8 extends javax.swing.JFrame {
         
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi7 order by kelas ASC";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KELAS,KETERANGAN FROM presensi8 order by kelas ASC";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -263,7 +263,7 @@ public class Edit_Absen8 extends javax.swing.JFrame {
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         try{
-            String sql = "update presensi7 set Tanggal='"+tgl+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
+            String sql = "update presensi8 set Tanggal='"+tgl+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
                     + " Keterangan='"+Presen.getSelectedItem()+"',Kelas='"+Kelas_f.getText()+"' where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
@@ -291,7 +291,7 @@ public class Edit_Absen8 extends javax.swing.JFrame {
 
     private void HapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusActionPerformed
       try{
-            String sql = "DELETE FROM presensi7 where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
+            String sql = "DELETE FROM presensi8 where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
