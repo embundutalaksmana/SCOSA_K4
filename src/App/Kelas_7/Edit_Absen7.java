@@ -17,7 +17,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         NIS_f.setEditable(true);
         NIS_f.setText(null);
         Nama_f.setText(null);
-        jDateChooser1.setDate(null);
+        tnggl.setDate(null);
     }
      private void print_data(){
          int row=Table_siswa.getRowCount();
@@ -78,7 +78,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         Hapus = new javax.swing.JButton();
         Presen = new javax.swing.JComboBox<>();
         Refresh = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        tnggl = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,6 +155,8 @@ public class Edit_Absen7 extends javax.swing.JFrame {
             }
         });
 
+        tnggl.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,7 +181,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
                             .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +209,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
@@ -288,7 +290,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
             int a=Table_siswa.getSelectedRow();
             java.util.Date dat= new SimpleDateFormat("yyyy-MM-dd").parse((String)m.getValueAt(a, 1));
             if(a>-1){
-            jDateChooser1.setDate(dat);
+            tnggl.setDate(dat);
             NIS_f.setText(m.getValueAt(a, 2).toString());
             Nama_f.setText(m.getValueAt(a, 3).toString());  
         }
@@ -303,9 +305,9 @@ public class Edit_Absen7 extends javax.swing.JFrame {
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
-        if(jDateChooser1.getDate()!=null){
+        if(tnggl.getDate()!=null){
            SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
-           tgl=ft.format(jDateChooser1.getDate());
+           tgl=ft.format(tnggl.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange
 public static void main(String args[]) {
@@ -355,9 +357,9 @@ public static void main(String args[]) {
     private javax.swing.JLabel Tahun2;
     private javax.swing.JLabel Tahun4;
     private javax.swing.JLabel Tahun5;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser tnggl;
     // End of variables declaration//GEN-END:variables
 }
