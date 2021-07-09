@@ -77,7 +77,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         Kembali = new javax.swing.JButton();
         Hapus = new javax.swing.JButton();
         Presen = new javax.swing.JComboBox<>();
-        tnggl = new com.toedter.calendar.JDateChooser();
+        tnggl = new org.netbeans.modules.form.InvalidComponent();
         Refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,13 +147,6 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         });
 
         Presen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hadir", "Sakit", "Izin", "Alpha" }));
-
-        tnggl.setDateFormatString("yyyy-MM-dd");
-        tnggl.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                tngglPropertyChange(evt);
-            }
-        });
 
         Refresh.setText("Refresh");
         Refresh.addActionListener(new java.awt.event.ActionListener() {
@@ -362,6 +355,7 @@ public static void main(String args[]) {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private com.toedter.calendar.JDateChooser tnggl;
+    private org.netbeans.modules.form.InvalidComponent tnggl;
+    private org.netbeans.modules.form.InvalidComponent tnggl1;
     // End of variables declaration//GEN-END:variables
 }
