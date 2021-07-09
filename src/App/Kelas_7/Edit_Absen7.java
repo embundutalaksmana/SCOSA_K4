@@ -130,7 +130,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Table_siswa);
 
-        Tahun5.setText("DATA PRESENSI SISWA");
+        Tahun5.setText("DATA PRESENSI SISWA KELAS 7");
 
         Kembali.setText("Kembali");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
@@ -248,7 +248,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         try{
             String sql = "update presensi7 set Tanggal='"+tgl+"',NIS='"+NIS_f.getText()+"',NAMA='"+Nama_f.getText()+"',"
-                    + " Keterangan='"+Presen.getSelectedItem()+"' where NIS='"+NIS_f.getText()+"' and Tanggal='"+tgl+"'";
+                    + " Keterangan='"+Presen.getSelectedItem()+"' where NIS='"+NIS_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
