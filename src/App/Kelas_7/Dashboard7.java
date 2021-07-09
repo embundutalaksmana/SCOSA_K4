@@ -1,6 +1,4 @@
 package App.Kelas_7;
-
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JTextField;

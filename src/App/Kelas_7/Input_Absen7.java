@@ -1,8 +1,4 @@
 package App.Kelas_7;
-
-
-
-
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -28,8 +24,6 @@ public class Input_Absen7 extends javax.swing.JFrame {
         NIS_f.setEditable(true);
         NIS_f.setText(null);
         Nama_f.setText(null);
-        Kelas_f.setText(null);
-        Kelas_f.setText(null);
     }
      private void print_data(){
         DefaultTableModel model = new DefaultTableModel();
@@ -37,18 +31,17 @@ public class Input_Absen7 extends javax.swing.JFrame {
         model.addColumn("No.");
         model.addColumn("NIS");
         model.addColumn("Nama");
-        model.addColumn("Kelas");
         model.addColumn("Alamat");
          try{
             int no = 1;
-            String sql = "SELECT * FROM identitas7 order by Kelas asc";
+            String sql = "SELECT * FROM identitas7";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
             
             while(res.next()) {
                model.addRow(new Object[] {no++ , res.getString(1) , res.getString(2),
-               res.getString(3), res.getString(4)});
+               res.getString(3)});
             } 
               
             Table_siswa.setModel(model);
@@ -72,9 +65,7 @@ public class Input_Absen7 extends javax.swing.JFrame {
     private void initComponents() {
 
         Absen = new javax.swing.JButton();
-        Tahun3 = new javax.swing.JLabel();
         Tahun1 = new javax.swing.JLabel();
-        Kelas_f = new javax.swing.JTextField();
         Tahun2 = new javax.swing.JLabel();
         Tahun4 = new javax.swing.JLabel();
         NIS_f = new javax.swing.JTextField();
@@ -97,15 +88,7 @@ public class Input_Absen7 extends javax.swing.JFrame {
             }
         });
 
-        Tahun3.setText("Kelas: ");
-
         Tahun1.setText("NAMA: ");
-
-        Kelas_f.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Kelas_fActionPerformed(evt);
-            }
-        });
 
         Tahun2.setText("NIS: ");
 
@@ -196,15 +179,8 @@ public class Input_Absen7 extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(Nama_f)
                                         .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(Tahun3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(Absen))))
+                        .addGap(95, 95, 95)
+                        .addComponent(Absen))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(182, 182, 182)
                         .addComponent(Tahun5))
@@ -219,13 +195,9 @@ public class Input_Absen7 extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Tahun3)
-                        .addComponent(Kelas_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tnggl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Tahun2)
@@ -258,7 +230,7 @@ public class Input_Absen7 extends javax.swing.JFrame {
 
     private void AbsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbsenActionPerformed
         try{
-            String sql = "INSERT INTO presensi7(TANGGAL,NIS,NAMA,KELAS,KETERANGAN) VALUES ('"+tgl+"' , '"+NIS_f.getText()+"' , '"+Nama_f.getText()+"' , '"+Kelas_f.getText()+"' , '"+Presen.getSelectedItem()+"')";
+            String sql = "INSERT INTO presensi7 (TANGGAL,NIS,NAMA,KETERANGAN) VALUES ('"+tgl+"' , '"+NIS_f.getText()+"' , '"+Nama_f.getText()+"' , '"+Presen.getSelectedItem()+"')";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -282,10 +254,6 @@ public class Input_Absen7 extends javax.swing.JFrame {
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
-
-    private void Kelas_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kelas_fActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Kelas_fActionPerformed
 
     private void PresenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PresenActionPerformed
         // TODO add your handling code here:
@@ -320,9 +288,8 @@ public static void main(String args[]) {
             java.util.logging.Logger.getLogger(Input_Absen7.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+        
+     
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -335,7 +302,6 @@ public static void main(String args[]) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Absen;
-    private javax.swing.JTextField Kelas_f;
     private javax.swing.JButton Kembali;
     private javax.swing.JTextField NIS_f;
     private javax.swing.JTextField Nama_f;
@@ -343,7 +309,6 @@ public static void main(String args[]) {
     private javax.swing.JTable Table_siswa;
     private javax.swing.JLabel Tahun1;
     private javax.swing.JLabel Tahun2;
-    private javax.swing.JLabel Tahun3;
     private javax.swing.JLabel Tahun4;
     private javax.swing.JLabel Tahun5;
     private javax.swing.JLabel jLabel1;
