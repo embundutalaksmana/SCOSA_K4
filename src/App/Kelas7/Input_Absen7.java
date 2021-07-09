@@ -276,7 +276,7 @@ public class Input_Absen7 extends javax.swing.JFrame {
     }//GEN-LAST:event_Nama_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard7 D=new Dashboard7();
+       Dashboard8 D=new Dashboard8();
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed

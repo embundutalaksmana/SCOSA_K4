@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-public class Edit_Absen7 extends javax.swing.JFrame {
+public class Edit_Absen8 extends javax.swing.JFrame {
 
     private String tgl;
 
@@ -39,7 +39,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
         }
     }
      DefaultTableModel model;
-    public Edit_Absen7() {
+    public Edit_Absen8() {
         initComponents();
         String[] judul={"No","Tanggal","NIS","Nama","Kelas","Keterangan"};
         model=new DefaultTableModel(judul,0);
@@ -280,7 +280,7 @@ public class Edit_Absen7 extends javax.swing.JFrame {
     }//GEN-LAST:event_NIS_fActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard7 D=new Dashboard7();
+       Dashboard8 D=new Dashboard8();
        D.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_KembaliActionPerformed
