@@ -130,7 +130,7 @@ public class Input_Absen9 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Table_siswa);
 
-        Tahun5.setText("DATA SISWA KELAS 7");
+        Tahun5.setText("DATA SISWA KELAS 9");
 
         Presen.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Presen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hadir", "Sakit", "Izin", "Alpha" }));

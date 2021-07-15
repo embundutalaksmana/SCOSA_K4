@@ -207,7 +207,7 @@ public class Riwayat_Absen7 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,9 +313,9 @@ public class Riwayat_Absen7 extends javax.swing.JFrame {
     }//GEN-LAST:event_KembaliActionPerformed
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
-         if(tnggl.getDate()!=null){
+         if(tnggl1.getDate()!=null){
            SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
-           tgl=ft.format(tnggl.getDate());
+           tgl=ft.format(tnggl1.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange
 public static void main(String args[]) {

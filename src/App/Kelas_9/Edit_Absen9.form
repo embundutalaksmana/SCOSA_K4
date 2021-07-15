@@ -272,7 +272,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="Tahun5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DATA PRESENSI SISWA KELAS 7"/>
+            <Property name="text" type="java.lang.String" value="DATA PRESENSI SISWA KELAS 9"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

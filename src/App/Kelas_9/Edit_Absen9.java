@@ -207,7 +207,7 @@ public class Edit_Absen9 extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(20, 350, 452, 123);
 
-        Tahun5.setText("DATA PRESENSI SISWA KELAS 7");
+        Tahun5.setText("DATA PRESENSI SISWA KELAS 9");
         jPanel1.add(Tahun5);
         Tahun5.setBounds(140, 300, 188, 16);
 

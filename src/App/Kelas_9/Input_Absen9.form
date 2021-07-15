@@ -188,7 +188,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="Tahun5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="DATA SISWA KELAS 7"/>
+        <Property name="text" type="java.lang.String" value="DATA SISWA KELAS 9"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="Presen">

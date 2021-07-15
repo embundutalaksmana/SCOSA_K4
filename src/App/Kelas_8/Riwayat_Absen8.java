@@ -1,4 +1,5 @@
 package App.Kelas_8;
+import App.Kelas_7.*;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -37,7 +38,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -207,9 +208,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +235,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 WHERE TANGGAL ='"+tgl+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7 WHERE TANGGAL ='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -262,7 +261,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 WHERE NIS ='"+NIS_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7 WHERE NIS ='"+NIS_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -287,7 +286,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 WHERE Nama ='"+Nama_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7 WHERE Nama ='"+Nama_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -309,15 +308,15 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard8 D=new Dashboard8();
+       Dashboard7 D=new Dashboard7();
        D.setVisible(true);
        dispose();
     }//GEN-LAST:event_KembaliActionPerformed
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
-         if(tnggl.getDate()!=null){
+         if(tnggl1.getDate()!=null){
            SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
-           tgl=ft.format(tnggl.getDate());
+           tgl=ft.format(tnggl1.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange
 public static void main(String args[]) {
