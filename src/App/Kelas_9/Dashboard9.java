@@ -20,16 +20,37 @@ public class Dashboard9 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Input = new javax.swing.JButton();
         Riwayat = new javax.swing.JButton();
         Keluar = new javax.swing.JButton();
         Edit = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 153, 51));
 
-        jLabel1.setText("DASHBOARD SCOSA");
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(390, 319));
+        jPanel1.setLayout(null);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel3.setText("DASHBOARD SCOSA");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(90, 10, 250, 29);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        jLabel4.setText("WELCOME");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(160, 60, 91, 16);
+
+        UserName1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UserName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UserName1.setText("Walikelas 9");
+        jPanel1.add(UserName1);
+        UserName1.setBounds(20, 90, 370, 22);
 
         Input.setText("Input Absensi");
         Input.addActionListener(new java.awt.event.ActionListener() {
@@ -37,6 +58,8 @@ public class Dashboard9 extends javax.swing.JFrame {
                 InputActionPerformed(evt);
             }
         });
+        jPanel1.add(Input);
+        Input.setBounds(30, 180, 117, 25);
 
         Riwayat.setText("Riwayat Absensi");
         Riwayat.addActionListener(new java.awt.event.ActionListener() {
@@ -44,6 +67,8 @@ public class Dashboard9 extends javax.swing.JFrame {
                 RiwayatActionPerformed(evt);
             }
         });
+        jPanel1.add(Riwayat);
+        Riwayat.setBounds(230, 180, 125, 25);
 
         Keluar.setText("Keluar");
         Keluar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +76,8 @@ public class Dashboard9 extends javax.swing.JFrame {
                 KeluarActionPerformed(evt);
             }
         });
+        jPanel1.add(Keluar);
+        Keluar.setBounds(230, 260, 125, 25);
 
         Edit.setText("Edit Absensi");
         Edit.addActionListener(new java.awt.event.ActionListener() {
@@ -58,58 +85,18 @@ public class Dashboard9 extends javax.swing.JFrame {
                 EditActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Selamat Datang");
-
-        UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        UserName.setText("Walikelas 9");
+        jPanel1.add(Edit);
+        Edit.setBounds(30, 260, 117, 25);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Input, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Riwayat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Keluar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(60, 60, 60))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UserName)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Input)
-                    .addComponent(Riwayat))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Edit)
-                    .addComponent(Keluar))
-                .addGap(51, 51, 51))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -147,8 +134,9 @@ public class Dashboard9 extends javax.swing.JFrame {
     private javax.swing.JButton Input;
     private javax.swing.JButton Keluar;
     private javax.swing.JButton Riwayat;
-    public static final javax.swing.JLabel UserName = new javax.swing.JLabel();
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public static final javax.swing.JLabel UserName1 = new javax.swing.JLabel();
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

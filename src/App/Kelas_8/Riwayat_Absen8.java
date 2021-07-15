@@ -1,4 +1,5 @@
 package App.Kelas_8;
+import App.Kelas_7.*;
 import konfigurasi.CONFIG;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -37,7 +38,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -68,46 +69,65 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
     private void initComponents() {
 
         tnggl = new com.toedter.calendar.JDateChooser();
-        jLabel1 = new javax.swing.JLabel();
-        NIS_f = new javax.swing.JTextField();
-        Nama_f = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        Tahun1 = new javax.swing.JLabel();
-        Tahun2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        Refresh = new javax.swing.JButton();
+        Kembali = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_siswa = new javax.swing.JTable();
         Cari_tanggal = new javax.swing.JButton();
         Cari_NIS = new javax.swing.JButton();
         Cari_Nama = new javax.swing.JButton();
-        Refresh = new javax.swing.JButton();
-        Kembali = new javax.swing.JButton();
+        NIS_f = new javax.swing.JTextField();
+        Nama_f = new javax.swing.JTextField();
         tnggl1 = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        Tahun1 = new javax.swing.JLabel();
+        Tahun2 = new javax.swing.JLabel();
 
         tnggl.setDateFormatString("yyyy-MM-dd");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("RIWAYAT ABSENSI");
+        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setLayout(null);
 
-        NIS_f.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
+        jLabel3.setText("RIWAYAT ABSENSI");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(130, 10, 240, 29);
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel2.setLayout(null);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 490, 50);
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel3.setLayout(null);
+
+        Refresh.setText("Refresh");
+        Refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NIS_fActionPerformed(evt);
+                RefreshActionPerformed(evt);
             }
         });
+        jPanel3.add(Refresh);
+        Refresh.setBounds(20, 20, 77, 25);
 
-        Nama_f.addActionListener(new java.awt.event.ActionListener() {
+        Kembali.setText("Kembali");
+        Kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Nama_fActionPerformed(evt);
+                KembaliActionPerformed(evt);
             }
         });
+        jPanel3.add(Kembali);
+        Kembali.setBounds(380, 20, 77, 25);
 
-        jLabel2.setText("Tanggal: ");
-
-        Tahun1.setText("NAMA: ");
-
-        Tahun2.setText("NIS: ");
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 440, 490, 60);
 
         Table_siswa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,12 +142,17 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Table_siswa);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 280, 452, 122);
+
         Cari_tanggal.setText("Cari");
         Cari_tanggal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cari_tanggalActionPerformed(evt);
             }
         });
+        jPanel1.add(Cari_tanggal);
+        Cari_tanggal.setBounds(290, 90, 55, 25);
 
         Cari_NIS.setText("Cari");
         Cari_NIS.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +160,8 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
                 Cari_NISActionPerformed(evt);
             }
         });
+        jPanel1.add(Cari_NIS);
+        Cari_NIS.setBounds(290, 130, 55, 25);
 
         Cari_Nama.setText("Cari");
         Cari_Nama.addActionListener(new java.awt.event.ActionListener() {
@@ -142,103 +169,50 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
                 Cari_NamaActionPerformed(evt);
             }
         });
+        jPanel1.add(Cari_Nama);
+        Cari_Nama.setBounds(290, 170, 55, 25);
 
-        Refresh.setText("Refresh");
-        Refresh.addActionListener(new java.awt.event.ActionListener() {
+        NIS_f.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshActionPerformed(evt);
+                NIS_fActionPerformed(evt);
             }
         });
+        jPanel1.add(NIS_f);
+        NIS_f.setBounds(100, 130, 90, 22);
 
-        Kembali.setText("Kembali");
-        Kembali.addActionListener(new java.awt.event.ActionListener() {
+        Nama_f.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KembaliActionPerformed(evt);
+                Nama_fActionPerformed(evt);
             }
         });
+        jPanel1.add(Nama_f);
+        Nama_f.setBounds(100, 170, 90, 22);
 
         tnggl1.setDateFormatString("yyyy-MM-dd");
+        jPanel1.add(tnggl1);
+        tnggl1.setBounds(100, 90, 95, 22);
+
+        jLabel2.setText("Tanggal: ");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(40, 90, 55, 16);
+
+        Tahun1.setText("NAMA: ");
+        jPanel1.add(Tahun1);
+        Tahun1.setBounds(50, 170, 43, 16);
+
+        Tahun2.setText("NIS: ");
+        jPanel1.add(Tahun2);
+        Tahun2.setBounds(60, 130, 29, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Tahun1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(Nama_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(Tahun2)
-                                        .addGap(21, 21, 21)
-                                        .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(tnggl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(92, 92, 92)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Cari_Nama)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Cari_tanggal)
-                                    .addComponent(Cari_NIS))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Kembali)
-                                .addGap(15, 15, 15))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(117, 117, 117))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Refresh)
-                        .addGap(58, 58, 58))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(Cari_tanggal))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tnggl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Tahun2)
-                                    .addComponent(NIS_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Cari_NIS)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(Kembali)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Tahun1)
-                            .addComponent(Nama_f, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cari_Nama))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(Refresh)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -261,7 +235,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 WHERE TANGGAL ='"+tgl+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7 WHERE TANGGAL ='"+tgl+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -287,7 +261,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 WHERE NIS ='"+NIS_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7 WHERE NIS ='"+NIS_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -312,7 +286,7 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
         model.addColumn("Keterangan");
          try{
             int no = 1;
-            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi8 WHERE Nama ='"+Nama_f.getText()+"'";
+            String sql = "SELECT TANGGAL,NIS,NAMA,KETERANGAN FROM presensi7 WHERE Nama ='"+Nama_f.getText()+"'";
             java.sql.Connection conn = (Connection)CONFIG.configDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
@@ -334,15 +308,15 @@ public class Riwayat_Absen8 extends javax.swing.JFrame {
     }//GEN-LAST:event_RefreshActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-       Dashboard8 D=new Dashboard8();
+       Dashboard7 D=new Dashboard7();
        D.setVisible(true);
        dispose();
     }//GEN-LAST:event_KembaliActionPerformed
 
     private void tngglPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_tngglPropertyChange
-         if(tnggl.getDate()!=null){
+         if(tnggl1.getDate()!=null){
            SimpleDateFormat ft=new SimpleDateFormat("yyyy-MM-dd");
-           tgl=ft.format(tnggl.getDate());
+           tgl=ft.format(tnggl1.getDate());
        }
     }//GEN-LAST:event_tngglPropertyChange
 public static void main(String args[]) {
@@ -371,6 +345,66 @@ public static void main(String args[]) {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
        
 
         /* Create and display the form */
@@ -393,8 +427,11 @@ public static void main(String args[]) {
     private javax.swing.JTable Table_siswa;
     private javax.swing.JLabel Tahun1;
     private javax.swing.JLabel Tahun2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser tnggl;
     private com.toedter.calendar.JDateChooser tnggl1;
